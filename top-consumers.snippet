@@ -1,0 +1,4 @@
+# @name: Top CPU & memory consumers
+# @description: The 10 heaviest processes by CPU and the 10 heaviest by resident memory, with load average and memory headroom for context.
+# @os: Ubuntu, Debian
+echo "load:$(cut -d' ' -f1-3 /proc/loadavg)  cores:$(nproc)"; free -h | awk 'NR==2{printf "mem: %s used / %s total, %s available\n", $3, $2, $7}'; echo; echo "-- top CPU --"; ps -eo pcpu,pmem,rss,etime,user,comm --sort=-pcpu --no-headers | head -10 | awk '{printf "%5s%% cpu %5s%% mem %8.0fMB %-12s %-10s %s\n", $1, $2, $3/1024, $4, $5, $6}'; echo; echo "-- top MEM --"; ps -eo pcpu,pmem,rss,etime,user,comm --sort=-rss --no-headers | head -10 | awk '{printf "%5s%% cpu %5s%% mem %8.0fMB %-12s %-10s %s\n", $1, $2, $3/1024, $4, $5, $6}'

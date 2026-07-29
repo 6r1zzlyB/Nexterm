@@ -1,0 +1,4 @@
+# @name: Find disk hogs
+# @description: Largest directories and files on the root filesystem. Skips /var/lib/docker, whose overlay tree is millions of inodes and is covered by the Docker disk report instead - so the totals here will not sum to df on a container host.
+# @os: Ubuntu, Debian
+echo "-- filesystem --"; df -h / | awk 'NR==2{printf "/ : %s used of %s (%s), %s free\n", $3, $2, $5, $4}'; DR=$(docker info --format '{{.DockerRootDir}}' 2>/dev/null || echo /var/lib/docker); echo "(excluding $DR — see the Docker disk report for that)"; echo; echo "-- largest directories --"; du -xd2 --exclude="$DR" / 2>/dev/null | sort -n | tail -15 | awk '{printf "  %8.1f GB  %s\n", $1/1048576, $2}'; echo; echo "-- largest files --"; find / -xdev -path "$DR" -prune -o -type f -size +500M -printf '%s\t%p\n' 2>/dev/null | sort -nr | head -10 | awk -F'\t' '{printf "  %8.1f GB  %s\n", $1/1073741824, $2}'
