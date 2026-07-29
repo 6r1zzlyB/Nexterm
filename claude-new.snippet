@@ -1,4 +1,4 @@
 # @name: Ensure Claude Code session (JUMP-02)
 # @description: Start claude-screen.service if it is not running, then show the session. Does not attach — use the attach snippet for that.
-# @os: linux
+# @os: Ubuntu, Debian
 systemctl --user is-active --quiet claude-screen.service || systemctl --user start claude-screen.service; sleep 1; screen -ls | grep -F .claude || echo "no claude session yet — check: systemctl --user status claude-screen.service"

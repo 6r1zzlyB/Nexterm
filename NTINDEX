@@ -1,9 +1,19 @@
 # Nexterm source manifest for Saint Denis Enterprises
 # Format: <relative/path>@<md5hash>   (hash is a change-detection cache only)
 # Every synced file MUST be listed here. Extensions: scripts .sh/.bash/.zsh/.fish/.ps1 ; snippets .txt/.snippet/.cmd
-claude-health.sh@ed0f5a72427ac1770e359053d23c88f6
-claude-new.snippet@f5e3b2cd632701581ff00dfd093aae38
-claude-restart.snippet@1751b734413bf0de93c5fbc411f320e9
-claude-status.snippet@3154e467c53c0c1f2c920e011b2070a8
-host-quickinfo.sh@a57a91ed1c96bccd03164b0022592186
+apt-updates.snippet@7983215be5ab64f3ac7ec6b52a9938f5
+claude-health.sh@9d90a7e8187e83e0571c04c56de4c91b
+claude-new.snippet@7eefa9a0468657a8a5b81cd1aff30407
+claude-restart.snippet@7f2cb88f0972473994d58a6ca59a94ba
+claude-status.snippet@599df07b5edc65989c0a3dc48553202e
+disk-hogs.snippet@414fa6fd3b75d79ddd839b0430fe297a
+docker-disk-report.sh@7d380d340c5747480229a28703c54b8d
+docker-stack-status.sh@c881aed90b095940c419b19f91faa8d9
+docker-unhealthy.snippet@730a9996639abdd311abf2793df86a03
+gpu-transcode.sh@4ee62271c85c31d69141ec4efdc31916
+host-quickinfo.sh@9a467f035a73ef535ceed9bfd2dadabc
+journal-errors.sh@ba12b86c9cb1da40ce82d9f1c04db081
 jump02-claude.snippet@10750a37c6739199df213a8a45ca050d
+net-listeners.sh@e4fbe92723abce2b347dd91e94f94912
+storage-health.sh@f69552c8346306e812c757d7b6609a38
+top-consumers.snippet@9e5a9b2f6f1e8f21e869a3da9f20051a

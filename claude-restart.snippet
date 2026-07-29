@@ -1,4 +1,4 @@
 # @name: Restart Claude Code (JUMP-02, safe)
 # @description: Restart claude-screen.service. REFUSES if run from inside the 'claude' screen session (that would kill your own session) — detach with Ctrl-a d and run from a plain SSH shell first.
-# @os: linux
+# @os: Ubuntu, Debian
 case "$STY" in *.claude) echo "REFUSING: you are inside the 'claude' screen session; restarting would kill it. Detach (Ctrl-a d), then run this from a normal SSH shell."; exit 1;; esac; systemctl --user restart claude-screen.service && sleep 2 && echo "active=$(systemctl --user is-active claude-screen.service)" && screen -ls | grep -F .claude

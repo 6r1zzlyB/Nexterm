@@ -1,0 +1,4 @@
+# @name: Pending updates
+# @description: Count pending apt upgrades and how many are security updates, list the first 20, and report whether a reboot is required. Read-only - does not touch the package database.
+# @os: Ubuntu, Debian
+u=$(apt-get -s -o Debug::NoLocking=1 upgrade 2>/dev/null | grep -c '^Inst '); s=$(apt-get -s -o Debug::NoLocking=1 upgrade 2>/dev/null | grep '^Inst ' | grep -ci security); echo "pending: $u   security: $s"; apt-get -s -o Debug::NoLocking=1 upgrade 2>/dev/null | grep '^Inst ' | awk '{print "  " $2 " -> " $4}' | tr -d '(' | head -20; [ -f /var/run/reboot-required ] && echo "REBOOT REQUIRED" || echo "no reboot required"

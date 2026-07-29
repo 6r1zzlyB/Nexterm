@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @name: Claude Code health check (JUMP-02)
 # @description: Read-only diagnostic — service active/enabled state, recent journal lines, and screen session presence.
-# @os: linux
+# @os: Ubuntu, Debian
 set -u
 # Allow `systemctl --user` to reach the user bus over a non-login SSH session (lingering must be enabled).
 : "${XDG_RUNTIME_DIR:=/run/user/$(id -u)}"

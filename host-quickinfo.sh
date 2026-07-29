@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @name: Host quick info
 # @description: One-glance host summary — kernel, uptime/load, memory, disk, and (if present) running Docker containers.
-# @os: linux
+# @os: Ubuntu, Debian
 set -u
 
 echo "=== host ==="

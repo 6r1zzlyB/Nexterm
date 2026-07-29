@@ -1,0 +1,4 @@
+# @name: Docker problem containers
+# @description: List only the containers that are unhealthy, exited or restarting, with their restart counts. Prints nothing but a clean message when everything is fine.
+# @os: Ubuntu, Debian
+docker ps -a --filter health=unhealthy --filter status=exited --filter status=restarting --format '{{.Names}}\t{{.Status}}\t{{.Image}}' | awk -F'\t' 'BEGIN{n=0} {n++; printf "%-24s %-30s %s\n", $1, $2, $3} END{if(n==0) print "all containers healthy"}'

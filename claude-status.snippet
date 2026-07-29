@@ -1,4 +1,4 @@
 # @name: Claude Code status (JUMP-02)
 # @description: Show claude-screen.service state and current screen sessions.
-# @os: linux
+# @os: Ubuntu, Debian
 systemctl --user status claude-screen.service --no-pager -l | head -n 20; echo; screen -ls
