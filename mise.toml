@@ -1,0 +1,10 @@
+[tools]
+shellcheck = "latest"
+
+[tasks.lint]
+description = "shellcheck every tracked shell script"
+run = "shellcheck $(git ls-files '*.sh')"
+
+[tasks.check]
+description = "lint — run before every commit"
+depends = ["lint"]
